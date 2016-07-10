@@ -10,6 +10,9 @@ transport-map type persistent webui HTTPS_WEBUI
 !
 username <username> privilege 15 secret 0 <password>
 !
+interface GigabitEthernet1
+ ip address <ip_address> <subnet_mask>
+!
 virtual-service csr_mgmt
  ip shared host-interface GigabitEthernet1
  activate
