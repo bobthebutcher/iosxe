@@ -43,6 +43,27 @@ class IOSXE(object):
             self.api_token = resp.json()['token-id']
             self.xe.headers.update({'x-auth-token': self.api_token})
 
+    # System
+    def get_hostname(self):
+        uri = '/global/host-name'
+        resp = self.xe.get('{0}{1}'.format(self.url_base, uri))
+        return resp
+
+    def set_hostname(self, hostname):
+        self.xe.headers.update({'Content-Type': 'application/json'})
+        self.xe.headers.update({'Accept': 'application/json'})
+        uri = '/global/host-name'
+        payload = {'host-name': hostname}
+        resp = self.xe.put('{0}{1}'.format(self.url_base, uri), json=payload)
+        return resp
+
+    # Interfaces
+    def get_interfaces(self):
+        uri = '/interfaces'
+        resp = self.xe.get('{0}{1}'.format(self.url_base, uri))
+        return resp
+
+    # BGP
     def get_bgp(self):
         uri = '/routing-svc/bgp'
         resp = self.xe.get('{0}{1}'.format(self.url_base, uri))
