@@ -43,7 +43,13 @@ class IOSXE(object):
             self.api_token = resp.json()['token-id']
             self.xe.headers.update({'x-auth-token': self.api_token})
 
-    # System
+    # Save methods
+    def save_config(self):
+        uri = '/global/save-config'
+        resp = self.xe.put('{0}{1}'.format(self.url_base, uri))
+        return resp
+
+    # Hostname
     def get_hostname(self):
         uri = '/global/host-name'
         resp = self.xe.get('{0}{1}'.format(self.url_base, uri))
@@ -53,6 +59,19 @@ class IOSXE(object):
         self.xe.headers.update({'Content-Type': 'application/json'})
         uri = '/global/host-name'
         payload = {'host-name': hostname}
+        resp = self.xe.put('{0}{1}'.format(self.url_base, uri), json=payload)
+        return resp
+
+    # Domain Name
+    def get_domain_name(self):
+        uri = '/global/domain-name'
+        resp = self.xe.get('{0}{1}'.format(self.url_base, uri))
+        return resp
+
+    def set_domain_name(self, domain_name):
+        self.xe.headers.update({'Content-Type': 'application/json'})
+        uri = '/global/domain-name'
+        payload = {'domain-name': domain_name}
         resp = self.xe.put('{0}{1}'.format(self.url_base, uri), json=payload)
         return resp
 
