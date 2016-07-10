@@ -16,13 +16,13 @@ class IOSXE(object):
         :param timeout: Request timeout value
         """
         self.node = node
-        self.user = username
+        self.username = username
         self.password = password
         self.port = port
 
         self.url_base = 'https://{0}:{1}/api/v1'.format(self.node, self.port)
         self.xe = requests.session()
-        self.xe.auth = (self.user, self.password)
+        self.xe.auth = (self.username, self.password)
         self.xe.verify = verify  # http://docs.python-requests.org/en/latest/user/advanced/#ssl-cert-verification
         self.disable_warnings = disable_warnings
         self.timeout = timeout
