@@ -51,7 +51,6 @@ class IOSXE(object):
 
     def set_hostname(self, hostname):
         self.xe.headers.update({'Content-Type': 'application/json'})
-        self.xe.headers.update({'Accept': 'application/json'})
         uri = '/global/host-name'
         payload = {'host-name': hostname}
         resp = self.xe.put('{0}{1}'.format(self.url_base, uri), json=payload)
