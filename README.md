@@ -1,10 +1,20 @@
 # iosxe
 Python module to manage Cisco IOS XE devices via the rest API
 
-
-
-## Device configuration
+### IOS-XE API Introduction
 ```
+http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi/RESTAPIintro.html
+```
+
+### IOS-XE API Reference
+```
+http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi.html
+```
+
+
+### Device configuration
+```
+http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/csr1000Vswcfg/RESTAPI.html#96914
 !
 transport-map type persistent webui HTTPS_WEBUI
 !
