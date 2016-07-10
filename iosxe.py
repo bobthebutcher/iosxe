@@ -4,18 +4,19 @@ from . exceptions import AuthError
 
 
 class IOSXE(object):
-    def __init__(self, node, user, password, port=55443, verify=False, disable_warnings=False, timeout=2):
+    def __init__(self, node, username, password, port=55443, verify=False, disable_warnings=False, timeout=2):
         """
         Class to manage Cisco IOS-XE devices via the REST API
         :param node: IP address or Hostname
-        :param user:  User with privilege level 15 access
+        :param username:  User with privilege level 15 access
         :param password: Users password
+        :param port: API port number
         :param verify: Verify SSL certificate
         :param disable_warnings: Disable SSL warnings
         :param timeout: Request timeout value
         """
         self.node = node
-        self.user = user
+        self.user = username
         self.password = password
         self.port = port
 
