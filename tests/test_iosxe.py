@@ -1,5 +1,5 @@
 """
-Tests are performed against csr1000v-universalk9.03.15.00.S.155-2.S-std
+Tests are performed against csr1000v-universalk9.03.15.00.S.155-2.S-std.
 """
 import unittest
 
