@@ -2,9 +2,9 @@
 Python module to manage Cisco IOS XE devices via the rest API
 
 ### IOS-XE API Introduction
-```
-http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi/RESTAPIintro.html
-```
+[http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi/RESTAPIintro.html]
+(http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi/RESTAPIintro.html)
+
 
 ### IOS-XE API Reference
 [http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi.html]
