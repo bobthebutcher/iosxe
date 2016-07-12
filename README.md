@@ -8,8 +8,7 @@ http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi/RE
 
 ### IOS-XE API Reference
 ```
-[http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi.html]
-(http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi.html)
+[http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi.html](http://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/restapi/restapi.html)
 ```
 
 
