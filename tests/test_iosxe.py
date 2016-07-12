@@ -4,6 +4,7 @@ Tests are performed against csr1000v-universalk9.03.15.00.S.155-2.S-std.
 import unittest
 
 from iosxe.iosxe import IOSXE
+from iosxe.exceptions import AuthError
 
 node = '172.16.92.134'
 username = 'cisco'
@@ -24,3 +25,7 @@ class TestIOSXE(unittest.TestCase):
 
     def test_token_uri(self):
         self.assertEqual(self.xe.token_uri, '/auth/token-services')
+
+    def test_invalid_user_pass_returns_auth_error(self):
+        iosxe = IOSXE(node=node, username='stuff', password='things', disable_warnings=True)
+        self.assertRaises(AuthError, iosxe)
