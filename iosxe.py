@@ -35,8 +35,8 @@ class IOSXE(object):
             requests.packages.urllib3.disable_warnings()
 
         # Authentication Token
-        token_uri = '/auth/token-services'
-        resp = self.xe.post('{0}{1}'.format(self.url_base, token_uri))
+        self.token_uri = '/auth/token-services'
+        resp = self.xe.post('{0}{1}'.format(self.url_base, self.token_uri))
         if resp.status_code == 401:
             raise AuthError('Authorisation failed, check username and password')
         elif resp.status_code == 200:
