@@ -19,5 +19,35 @@ HTTP_SERVER_ERRORS = {
 
 
 class Result(object):
-    def __init__(self, ok=False, error=None, json=None):
-        pass
+    def __init__(self,
+                 ok=False, response=None, status_code=None,
+                 error=None, message=None, json=None):
+        self.ok = ok
+        self.response = response
+        self.status_code = status_code
+        self.error = error
+        self.message = message
+        self.json = json
+
+
+def parse_result(response):
+
+    result = Result(response=response)
+    result.status_code = response.status_code
+
+    if response.status_code in HTTP_ERROR_CODES:
+        result.ok = False
+        result.error = HTTP_ERROR_CODES[response.status_code]
+
+    elif response.status_code in HTTP_SERVER_ERRORS:
+        result.ok = False
+        result.error = HTTP_SERVER_ERRORS[response.status_code]
+
+    elif response.status_code in HTTP_SUCCESS_CODES:
+        result.ok = True
+        result.message = HTTP_SUCCESS_CODES[response.status_code]
+
+    if not response.status_code == 204:
+        result.json = response.json()
+
+    return result
