@@ -1,5 +1,6 @@
 import requests
 
+from . helpers import parse_result
 from . exceptions import AuthError
 
 
@@ -47,7 +48,7 @@ class IOSXE(object):
     def save_config(self):
         uri = '/global/save-config'
         resp = self.xe.put('{0}{1}'.format(self.url_base, uri))
-        return resp
+        return parse_result(resp)
 
     # Hostname
     def get_hostname(self):
