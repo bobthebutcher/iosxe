@@ -21,8 +21,9 @@ class TestIOSXE(unittest.TestCase):
         self.assertIsInstance(self.xe, IOSXE)
 
     def test_invalid_user_pass_returns_auth_error(self):
-        iosxe = IOSXE(node=node, username='stuff', password='things', disable_warnings=True)
-        self.assertRaises(AuthError, iosxe)
+
+        self.assertRaises(AuthError, IOSXE, node=node, username='stuff', password='things',
+                          disable_warnings=True)
 
     def test_url_base(self):
         self.assertEqual(self.xe.url_base, 'https://{0}:{1}/api/v1'.format(node, port))
@@ -31,4 +32,6 @@ class TestIOSXE(unittest.TestCase):
         self.assertEqual(self.xe.token_uri, '/auth/token-services')
 
     def test_save_config_success(self):
-        self.assertEqual(204, self.xe.save_config().status_code)
+        resp = self.xe.save_config()
+        self.assertEqual(204, resp.status_code)
+
