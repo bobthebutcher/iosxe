@@ -32,7 +32,8 @@ class Result(object):
 
 def parse_result(response):
 
-    result = Result()
+    result = Result(response=response)
+    result.status_code = response.status_code
 
     if response.status_code in HTTP_ERROR_CODES:
         result.ok = False
@@ -46,5 +47,7 @@ def parse_result(response):
         result.ok = True
         result.message = HTTP_SUCCESS_CODES[response.status_code]
 
-    result.status_code = response.status_code
-    result.json = response.json()
+    if not response.status_code == 204:
+        result.json = response.json()
+
+    return result
